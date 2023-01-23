@@ -1,5 +1,5 @@
 package fominskiy;
-
+// 2. Описать ошибки в коде (см. задание в методичке) и предложить варианты оптимизации.
 interface Moveable {
     void move();
 }
@@ -12,6 +12,12 @@ abstract class Car {
     private String color;
     private String name;
 
+    public Car(Engine engine, String color, String name) {
+        this.engine = engine;
+        this.color = color;
+        this.name = name;
+    }
+
     protected void start() {
         System.out.println("Car starting");
     }
@@ -22,28 +28,24 @@ abstract class Car {
         return engine;
     }
 
-    public void setEngine(Engine engine) {
-        this.engine = engine;
-    }
 
     public String getColor() {
         return color;
     }
 
-    public void setColor(String color) {
-        this.color = color;
-    }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 }
 
 class LightWeightCar extends Car implements Moveable {
+
+    public LightWeightCar(Engine engine, String color, String name) {
+        super(engine, color, name);
+    }
+
     @Override
     public void move() {
         System.out.println("Car is moving");
@@ -55,7 +57,12 @@ class LightWeightCar extends Car implements Moveable {
     }
 }
 
-class Lorry extends Car Moveable, Stopable {
+class Lorry extends Car implements Moveable, Stopable {
+
+    public Lorry(Engine engine, String color, String name) {
+        super(engine, color, name);
+    }
+
     @Override
     public void move() {
         System.out.println("Car is moving");
@@ -64,6 +71,11 @@ class Lorry extends Car Moveable, Stopable {
     @Override
     public void stop() {
         System.out.println("Car is stop");
+    }
+
+    @Override
+    void open() {
+
     }
 }
 
