@@ -14,3 +14,7 @@ hw2_1/target/classes/fominskiy/LinkList.class
 hw2_2/src/main/java/fominskiy/Main.java
 
 .idea/misc.xml
+
+*.class
+
+.idea/
